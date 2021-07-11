@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 0.9rem !important;
+  color: #ffffff !important;
+}
+h5 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #ffffff !important;
+  font-size: 1rem !important;
+}
+
+a {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #163e6d !important;
+  opacity: 0.6 !important;
+  text-decoration: none !important;
+}
+
+a:hover,
+a:active,
+a:focus {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #163e6d !important;
+  text-decoration: none !important;
+  opacity: 1 !important;
+}
+
+.active {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #163e6d !important;
+  text-decoration: none !important;
+  opacity: 1 !important;
+}
+
+#wrapper {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #163e6d !important;
+  /*   box-shadow: 1px 5px 25px 3px #444 !important;
+  border-radius: 10px !important;
+  margin: 100px auto !important;
+  max-width: 720px !important;
+  padding: 0px !important; */
+  color: #163e6d !important;
+}
+
+#current-weather {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #163e6d !important;
+  /*   padding: 15px !important; */
+}
+
+#mainTemperature {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #163e6d !important;
+  font-size: 3em !important;
+  line-height: 1 !important;
+}
+
+#tempDescription {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #163e6d !important;
+  text-align: center !important;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.day-weather-box {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #ffffff !important;
+  /*   border: 1px solid #ffffff !important;
+  background-color: #f8f9fe !important;
+  border-radius: 5px !important;
+  height: 5em !important; */
+}
+
+.day-weather-box p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #ffffff !important;
+  margin-bottom: 0 !important;
+}
+
+.side-weather-info {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #ffffff !important;
+  padding: 0px 10px !important;
+}
+
+.day-weather-inner-box {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #163e6d !important;
+  display: inline-flex !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: rgba(34, 34, 34, 0.2);
+  text-align: center;
+  border-radius: 15px;
+}
+
+.forecast-main {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #163e6d !important;
+  padding: 0 !important;
+}
+
+.forecast-icon {
+  color: #163e6d !important;
+  font-size: 25px !important;
+  margin-left: 5px !important;
+}
+
+.modal-body p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #163e6d !important;
+  color: #333 !important;
+}
+.day-weather-box h5,
+.day-weather-box h6,
+.day-weather-box p {
+  color: #ffffff !important;
+}
+
+#wrapper,
+.container-fluid,
+.container-fluid .row {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.container-fluid .row > div {
+  padding: 2px !important;
+  margin: 0 !important;
+}

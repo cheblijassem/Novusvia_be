@@ -1,0 +1,93 @@
+<main>
+  <section class="section section-shaped section-lg">
+    <div class="shape shape-style-1 bg-gradient-default">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="container pt-lg-md">
+      <div class="row justify-content-center">
+        <div class="col-lg-5">
+          <div class="card bg-secondary shadow border-0">
+
+            <div class="card-body px-lg-5 py-lg-5">
+              <div class="text-center text-muted mb-4">
+                <small>S'inscrire</small>
+              </div>
+              <form role="form" [formGroup]="form" (ngSubmit)="register($event)">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text drk"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                    <input name="username" formControlName="username" class="form-control drk" placeholder="Name"
+                      type="text">
+                  </div>
+                  <div
+                    *ngIf="form.controls['username'].invalid && (form.controls['username'].dirty || form.controls['username'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="form.controls['username'].errors.required">
+                      Username est obligatoire.
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text drk"><i class="ni ni-email-83"></i></span>
+                    </div>
+                    <input class="form-control drk" placeholder="Email" type="email" formControlName="email" name="email">
+                  </div>
+                  <div
+                    *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="form.controls['email'].errors.required">
+                      Email est obligatoire.
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text drk"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+                    <input class="form-control drk" placeholder="Mot de passe" type="password" formControlName="password"
+                      name="password">
+                  </div>
+                  <div
+                    *ngIf="form.controls['password'].invalid && (form.controls['password'].dirty || form.controls['password'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="form.controls['password'].errors.required">
+                      Password est obligatoire.
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="row my-4">
+                  <div class="col-12">
+                    <div class="custom-control custom-control-alternative custom-checkbox">
+                      <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                    </div>
+                  </div>
+                </div> -->
+                <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+                <div class="text-center">
+                  <button *ngIf="!loaderButton" type="submit"
+                      [disabled]="form.pristine || form.invalid"
+                      class="btn btn-primary mt-4">Soumettre</button><button *ngIf="loaderButton"
+                      class="btn btn-primary mt-4">
+                      <div class="loader">Loading...</div>
+                    </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

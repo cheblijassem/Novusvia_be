@@ -1,0 +1,104 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+        <div class="header-body">
+        </div>
+    </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+    <!-- Table -->
+    <!-- Dark table -->
+    <div class="row mt-5">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                        </div>
+                        <div class="col-4 text-right">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <form role="form" [formGroup]="form" (ngSubmit)="changepassword()">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <div class="input-group input-group-alternative">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                    </div>
+                                    <input class="form-control" placeholder="Username" type="text"
+                                        formControlName="username" name="username" disabled="true"
+                                        [value]="user.username">
+                                </div>
+                                <div *ngIf="form.controls['username'].invalid && (form.controls['username'].dirty || form.controls['username'].touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="form.controls['username'].errors.required">
+                                        Username est obligatoire.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="input-group input-group-alternative">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                    </div>
+                                    <input class="form-control" placeholder="Email" type="text" formControlName="email"
+                                        name="email" disabled="true" [value]="user.email">
+                                </div>
+                                <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="form.controls['email'].errors.required">
+                                        Email est obligatoire.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="input-group input-group-alternative">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                    </div>
+                                    <input class="form-control" placeholder="Password" type="password"
+                                        formControlName="password" name="password">
+                                </div>
+                                <div *ngIf="form.controls['password'].invalid && (form.controls['password'].dirty || form.controls['password'].touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="form.controls['password'].errors.required">
+                                        Password est obligatoire.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="input-group input-group-alternative">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                    </div>
+                                    <input class="form-control" placeholder="Password" formControlName="password2"
+                                        name="password2" type="password">
+                                </div>
+                                <div *ngIf="form.controls['password2'].invalid && (form.controls['password2'].dirty || form.controls['password2'].touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="form.controls['password2'].errors.required">
+                                        Password confirmation est obligatoire.
+                                    </div>
+                                    <div *ngIf="form.controls['password2'].errors.mustMatch">
+                                        les mots de passe doivent correspondre.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button *ngIf="!loaderButton" type="submit" [disabled]="form.pristine || form.invalid"
+                                class="btn btn-primary mt-4">Soumettre</button><button *ngIf="loaderButton"
+                                class="btn btn-primary mt-4">
+                                <div class="loader">Loading...</div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

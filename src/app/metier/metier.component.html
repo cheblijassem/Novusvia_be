@@ -1,0 +1,256 @@
+<main>
+    <section class="section pb-0">
+        <div class="overlaybg" [ngClass]='bg'></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="container landing-block">
+                        <div class="d-flex px-3 mb-3">
+                            <div>
+                                <div
+                                    class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
+                                    <i class="ni ni-building text-primary"></i>
+                                </div>
+                            </div>
+                            <div class="pl-4">
+                                <h4 class="display-3 text-white">{{'navbar.Metier' | translate }}</h4>
+                            </div>
+                        </div>
+                        <div class="row row-grid align-items-center">
+                            <div class="col-lg-4 order-lg-1">
+
+                                <div class="card mt-5 shadow">
+                                    <div class="card-body bg-gradient-success">
+                                        <div class="d-flex px-3">
+                                            <div>
+                                                <div
+                                                    class="icon icon-shape rounded-circle bg-gradient-white text-success">
+                                                    <i class="fa fa-hands-helping"></i>
+                                                </div>
+                                            </div>
+                                            <div class="pl-4">
+                                                <h5 class="title text-white ">{{'metier.accompagnement' | translate }}
+                                                </h5>
+                                                <a (click)='reset();show1 = true;changeImg()'
+                                                    class="btn btn-sm bg-gradient-white text-success">{{'metier.plus' |
+                                                    translate }}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 order-lg-1">
+
+                                <div class="card mt-5 shadow">
+                                    <div class="card-body bg-gradient-primary">
+                                        <div class="d-flex px-3">
+                                            <div>
+                                                <div
+                                                    class="icon icon-shape bg-gradient-white rounded-circle text-primary">
+                                                    <i class="fa fa-directions"></i>
+                                                </div>
+                                            </div>
+                                            <div class="pl-4">
+                                                <h5 class="title text-white">{{'metier.Conseil' | translate }}</h5>
+                                                <a (click)='reset();show2 = true;changeImg()'
+                                                    class="btn btn-sm bg-gradient-white text-primary">{{'metier.plus' |
+                                                    translate }}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 order-lg-1">
+                                <section class="section section-lg pt-0 mt-4 details" id="d1"
+                                    [ngClass]="{reveal: show1 == true}">
+                                    <div class="container">
+                                        <div class="card bg-gradient-success shadow-lg border-0">
+
+                                            <div class="p-5">
+                                                <div class="row align-items-center">
+                                                    <a class="modal-close" (click)='resetAll()'>×</a>
+                                                    <div class="col-lg-12">
+                                                        <h3 class="text-white">{{'metier.accompagnement' | translate }}
+                                                        </h3>
+                                                        <h4 class="text-white">{{'metier.1h1' | translate }} :</h4>
+
+
+                                                        <p class="lead text-white mt-3">
+                                                            {{'metier.1p1' | translate }}
+                                                        </p>
+                                                        <h4 class="text-white">{{'metier.1h2' | translate }} :</h4>
+                                                        <p class="lead text-white mt-3">
+                                                            {{'metier.1p1' | translate }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="section section-lg pt-0 mt-4 details" id="d2"
+                                    [ngClass]="{reveal: show2 == true}">
+                                    <div class="container">
+                                        <div class="card bg-gradient-primary shadow-lg border-0">
+                                            <div class="p-5">
+                                                <div class="row align-items-center">
+                                                    <a class="modal-close" (click)='resetAll()'>×</a>
+                                                    <div class="col-lg-12">
+                                                        <h3 class="text-white">{{'metier.Conseil' | translate }}</h3>
+                                                        <p class="lead text-white mt-3">{{'metier.2p1' | translate }}
+                                                        </p>
+
+                                                        <h4>{{'metier.2h1' | translate }}</h4>
+                                                        <p class="lead text-white mt-3">{{'metier.2p2' | translate }}
+                                                        </p>
+
+
+                                                        <p class="blockquote-footer lead text-white mt-3">{{'metier.2p3'
+                                                            | translate }}</p>
+                                                        <p class="blockquote-footer lead text-white mt-3">{{'metier.2p4'
+                                                            | translate }}</p>
+                                                        <p class="blockquote-footer lead text-white mt-3">{{'metier.2p5'
+                                                            | translate }}</p>
+                                                        <p class="blockquote-footer lead text-white mt-3">{{'metier.2p6'
+                                                            | translate }}</p>
+
+                                                        <p class="lead text-white mt-3">{{'metier.2p7' | translate }}
+                                                        </p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-lg-4 order-lg-1">
+                                <div class="d-flex px-3">
+
+                                </div>
+                                <div class="card mt-5 shadow">
+                                    <div class="card-body bg-gradient-warning">
+                                        <div class="d-flex px-3">
+                                            <div>
+                                                <div
+                                                    class="icon icon-shape bg-gradient-white rounded-circle text-warning">
+                                                    <i class="fa fa-building"></i>
+                                                </div>
+                                            </div>
+                                            <div class="pl-4">
+                                                <h5 class="title text-white">{{'metier.Creation' | translate }}</h5>
+                                                <a (click)='reset();show3 = true;changeImg()'
+                                                    class="btn btn-sm bg-gradient-white text-warning">{{'metier.plus' |
+                                                    translate }}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 order-lg-1">
+                                <div class="d-flex px-3">
+
+                                </div>
+                                <div class="card mt-5 shadow">
+                                    <div class="card-body bg-gradient-info">
+                                        <div class="d-flex px-3">
+                                            <div>
+                                                <div class="icon icon-shape bg-gradient-white rounded-circle text-info">
+                                                    <i class="fa fa-users"></i>
+                                                </div>
+                                            </div>
+                                            <div class="pl-4">
+                                                <h5 class="title text-white">{{'metier.Social' | translate }}</h5>
+                                                <a (click)='reset();show4 = true;changeImg()'
+                                                    class="btn btn-sm bg-gradient-white text-info">{{'metier.plus' |
+                                                    translate }}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-12 order-lg-1">
+                                <section class="section section-lg pt-0 mt-4 details" id="d3"
+                                    [ngClass]="{reveal: show3 == true}">
+                                    <div class="container">
+                                        <div class="card bg-gradient-warning shadow-lg border-0">
+                                            <div class="p-5">
+                                                <div class="row align-items-center">
+                                                    <a class="modal-close" (click)='resetAll()'>×</a>
+                                                    <div class="col-lg-12">
+                                                        <h3 class="text-white">{{'metier.Creation' | translate }}</h3>
+                                                        <p class="lead text-white mt-3"></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="section section-lg pt-0 mt-4 details" id="d4"
+                                    [ngClass]="{reveal: show4 == true}">
+                                    <div class="container">
+                                        <div class="card bg-gradient-info shadow-lg border-0">
+                                            <div class="p-5">
+                                                <div class="row align-items-center">
+                                                    <a class="modal-close" (click)='resetAll()'>×</a>
+                                                    <div class="col-lg-12">
+                                                        <h3 class="text-white">{{'metier.Social' | translate }}</h3>
+                                                        <h4 class="text-white">{{'metier.4h1' | translate }}
+                                                        </h4>
+
+
+
+
+                                                        <p class="lead text-white mt-3">{{'metier.4p1' | translate }}
+                                                        </p>
+                                                        <h4 class="text-white">{{'metier.4h2' | translate }}</h4>
+                                                        <p class="lead text-white mt-3">{{'metier.4p2' | translate }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 illustration" [style.background-image]="img">
+                </div>
+            </div>
+        </div>
+
+        <div class="container mb-3">
+            <div class="card card-profile shadow mt--300">
+                <div class="px-4">
+                    <div class="text-center mt-5">
+                        <h1>Recrutement</h1>
+                    </div>
+                    <div class="container">
+                        <h2>{{'metier.5h1' | translate }}</h2>
+                        <h3 class="description mt-3">
+                            {{'metier.5h2' | translate }}
+                        </h3>
+                        <a routerLinkActive="active" [routerLink]="['/rh']"
+                            class="btn btn-success text-white mb-2">{{'metier.5h3' | translate }}</a>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SVG separator -->
+        <!-- <div class="separator separator-bottom separator-skew zindex-100">
+            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+                xmlns="http://www.w3.org/2000/svg">
+                <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+        </div> -->
+
+    </section>
+
+
+</main>

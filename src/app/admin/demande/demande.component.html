@@ -1,0 +1,77 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+        <div class="header-body">
+
+        </div>
+    </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+    <!-- Table -->
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <h3 class="mb-0">Liste des demandes d'inscription</h3>
+                </div>
+                <div class="table-responsive">
+                    <ng2-smart-table (deleteConfirm)="deleteDemande($event)" (custom)="detailDemande($event)"
+                        [settings]="settings" [source]="demandes">
+                    </ng2-smart-table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Dark table -->
+
+</div>
+<div class="modal-window" [hidden]='!showDetail'>
+    <div class="overlyer" (click)='showDetail = !showDetail'></div>
+    <div>
+        <a title="Close" class="modal-close" (click)='showDetail = !showDetail'>Close</a>
+        <div class="row">
+            <div class="form-group col-md-6">
+                Email : {{detailInfo.username}}
+            </div>
+            <div class="form-group col-md-6">
+                Username : {{detailInfo.profile}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-6">
+                etat : <span class="badge badge-success" *ngIf="detailInfo.status == 'accepté'">Accepté</span>
+                <span class="badge badge-danger" *ngIf="detailInfo.status == 'réfusé'">Réfusé</span>
+                <span class="badge badge-warning" *ngIf="detailInfo.status == 'en attente'">En attente</span>
+            </div>
+            <div class="form-group col-md-6" *ngIf="detailInfo.status == 'accepté'">
+                En contrat avec : <span class="badge badge-primary" >{{detailInfo.recrutement.genre}} {{detailInfo.recrutement.nom}} {{detailInfo.recrutement.prenom}} | {{detailInfo.recrutement.email}}</span>
+            </div>
+        </div>
+        <div class="row" *ngIf="detailInfo.status != 'accepté'">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <h3 class="mb-0">Liste des demandes d'acces</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <ng2-smart-table (deleteConfirm)="refuseRecrutement($event)"
+                            (custom)="affecterRecrutement(detailInfo.id,$event)" [settings]="settings2"
+                            [source]="recrutements">
+                        </ng2-smart-table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- <div class="row justify-content-center">
+            <button *ngIf="detailInfo.status == 'en attente'" class="btn btn-primary"
+                (click)=enable(detailInfo.id)>Activer</button>
+            <button *ngIf="detailInfo.status == 'refusé'" class="btn btn-outline-warning" [disabled]="true"
+                (click)=enable(detailInfo.id)>Actived</button>
+            <button *ngIf="detailInfo.status == 'accepté'" class="btn btn-outline-success" [disabled]="true"
+                (click)=enable(detailInfo.id)>Actived</button>
+        </div> -->
+    </div>
+</div>

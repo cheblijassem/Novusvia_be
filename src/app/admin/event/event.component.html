@@ -1,0 +1,102 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+        <div class="header-body">
+        </div>
+    </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+    <!-- Table -->
+    <!-- Dark table -->
+    <div class="row mt-5">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                        </div>
+                        <div class="col-4 text-right">
+                            <button class="btn btn-sm btn-primary" (click)='show2 = !show2'>ajouter une event</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="row d-flex align-items-center justify-content-center event">
+
+                                <div class="event-wrapper col-lg-6 col-xl-4" *ngFor="let event of events">
+                                    <i class="fas fa-trash btn-sm btn-danger delete-post"
+                                        (click)='deleteEvent(event.id)'></i>
+                                    <div class="card card2">
+
+                                        <h2>{{event.title}}</h2>
+                                        <i class="fas fa-arrow-right"></i>
+                                        <div class="pic">
+                                            <div class="pic-overlay"></div>
+                                        </div>
+                                        <ul>
+                                        </ul>
+                                        <div class="social">
+                                            <a href=""><i class="fab fa-facebook"></i></a>
+                                            <a href=""><i class="fab fa-twitter"></i></a>
+                                            <a href=""><i class="fab fa-instagram"></i></a>
+                                            <a href=""><i class="fab fa-github"></i></a>
+                                        </div>
+                                        <button>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-window" [hidden]='!showDetail'>
+    <div class="overlyer" (click)='showDetail = !showDetail'></div>
+    <div>
+        <a title="Close" class="modal-close" (click)='showDetail = !showDetail'>Close</a>
+
+    </div>
+</div>
+
+
+<div class="modal-window" [hidden]='!show2'>
+    <div class="overlyer" (click)='show2 = !show2'></div>
+    <div>
+        <a title="Close" class="modal-close" (click)='show2 = !show2'>Close</a>
+
+        <form role="form" [formGroup]="form2" (ngSubmit)="addEvent()">
+
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                        </div>
+                        <input class="form-control" placeholder="Titre" type="text" formControlName="title"
+                            name="title">
+                    </div>
+                    <div *ngIf="form2.controls['title'].invalid && (form2.controls['title'].dirty || form2.controls['title'].touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="form2.controls['title'].errors.required">
+                            Titre est obligatoire.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button *ngIf="!loaderButton" type="submit" [disabled]="form2.pristine || form2.invalid"
+                    class="btn btn-primary mt-4">Créer</button><button *ngIf="loaderButton"
+                    class="btn btn-primary mt-4">
+                    <div class="loader">Loading...</div>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

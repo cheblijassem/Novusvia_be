@@ -1,0 +1,245 @@
+<section class="section section-lg bg-gradient-default">
+    <div class="container-fluid">
+        <div class="row row-grid">
+            <div class="container">
+                <div class="row row-grid">
+
+                    <div class="col-md-4">
+                        <div class="card bg-gradient-info shadow-lg border-0">
+                            <div class="p-3">
+                                <div class="row align-items-center">
+                                    <div class="col-md-12">
+                                        <h2 class="text-white text-center">Belgique (Europe)</h2>
+
+
+                                        <app-weather class="ml-1" [ip]='"35.205.195.146"' [zone]='"Europe/Brussels"'>
+                                        </app-weather>
+                                        <div class="contact-info mb-1 mt-2">
+                                            <div
+                                                class="icon icon-shape rounded-circle bg-gradient-white shadow text-success mr-2">
+                                                <i class="fas fa-phone-alt"></i>
+                                            </div>
+                                            <p class="lead text-white mt-0 mb-0">
+                                                +32 2 808 4337
+                                            </p>
+                                        </div>
+                                        <div class="contact-info mb-1">
+                                            <div
+                                                class="icon icon-shape rounded-circle bg-gradient-white shadow text-success mr-2">
+                                                <i class="fas fa-mobile"></i>
+                                            </div>
+                                            <p class="lead text-white mt-0 mb-0">
+                                                +32 492 173 443
+                                            </p>
+                                        </div>
+                                        <div class="contact-info mb-1">
+                                            <div
+                                                class="icon icon-shape rounded-circle bg-gradient-white shadow text-success mr-2">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+                                            <p class="lead text-success mt-0 mb-0 btn btn-secondary"
+                                                (click)="mailMe('nm@novusvia.net')">
+                                                nm@novusvia.net
+                                            </p>
+                                        </div>
+                                        <div class="contact-info mb-1">
+                                            <div
+                                                class="icon icon-shape rounded-circle bg-gradient-white shadow text-success mr-2">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                            </div>
+                                            <p class="lead text-white mt-0 mb-0">
+                                                Bruxelles: Avenue kersbeek, 308 1180
+                                                Uccle.
+                                            </p>
+                                        </div>
+
+
+                                    </div>
+                                    <div id="mapBelgique" class="map">
+                                        <div id="popup"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card bg-gradient-red shadow-lg border-0">
+                            <div class="p-3">
+                                <div class="row align-items-center">
+                                    <div class="col-md-12">
+                                        <h2 class="text-white text-center">Tunisie (Afrique du Nord)</h2>
+                                        <app-weather class="ml-1" [ip]='"41.226.27.119"' [zone]='"Africa/Tunis"'>
+                                        </app-weather>
+                                        <div class="contact-info mb-1 mt-2">
+                                            <div
+                                                class="icon icon-shape rounded-circle bg-gradient-white shadow text-red mr-2">
+                                                <i class="fas fa-phone-alt"></i>
+                                            </div>
+                                            <p class="lead text-white mt-0 mb-0">
+                                                +216 719 647 88
+                                            </p>
+                                        </div>
+                                        <div class="contact-info mb-1">
+                                            <div
+                                                class="icon icon-shape rounded-circle bg-gradient-white shadow text-red mr-2">
+                                                <i class="fas fa-mobile"></i>
+                                            </div>
+                                            <p class="lead text-white mt-0 mb-0">
+                                                +216 29 031 344
+                                            </p>
+                                        </div>
+                                        <div class="contact-info mb-1">
+                                            <div
+                                                class="icon icon-shape rounded-circle bg-gradient-white shadow text-red mr-2">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+                                            <p class="lead text-red btn mt-0 mb-0 btn-secondary"
+                                                (click)="mailMe('Sarra@novusvia.net')">
+                                                Sarra@novusvia.net
+                                            </p>
+                                        </div>
+                                        <div class="contact-info mb-1">
+                                            <div
+                                                class="icon icon-shape rounded-circle bg-gradient-white shadow text-red mr-2">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                            </div>
+                                            <p class="lead text-white mt-0 mb-0">
+                                                Tunis 14 D, Rue Emir Abduelkader ,Mutuelleville 1002 Tunis -Tunisie
+                                            </p>
+                                        </div>
+
+
+                                    </div>
+                                    <div id="mapTunisie" class="map">
+                                        <div id="popup"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-gradient-success shadow-lg border-0">
+                            <div class="p-3">
+                                <div class="row align-items-center">
+                                    <div class="col-md-12">
+                                        <h2 class="text-white text-center">Qatar (Moyen Orient)</h2>
+                                        <app-weather class="ml-1" [ip]='"176.203.80.250"' [zone]='"Asia/Qatar"'>
+                                        </app-weather>
+                                        <div class="contact-info mb-1 mt-2">
+                                            <div
+                                                class="icon icon-shape rounded-circle bg-gradient-white shadow text-info mr-2">
+                                                <i class="fas fa-phone-alt"></i>
+                                            </div>
+                                            <p class="lead text-white mt-0 mb-0">
+                                                +974 40 013 777
+                                            </p>
+                                        </div>
+                                        <div class="contact-info mb-1">
+                                            <div
+                                                class="icon icon-shape rounded-circle bg-gradient-white shadow text-info mr-2">
+                                                <i class="fas fa-mobile"></i>
+                                            </div>
+                                            <p class="lead text-white mt-0 mb-0">
+                                                +974 50 96 03 48
+                                            </p>
+                                        </div>
+                                        <div class="contact-info mb-1">
+                                            <div
+                                                class="icon icon-shape rounded-circle bg-gradient-white shadow text-info mr-2">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+                                            <p class="lead text-info btn mt-0 mb-0 btn-secondary"
+                                                (click)="mailMe('K.T@novusvia.net')">
+                                                K.T@novusvia.net
+                                            </p>
+                                        </div>
+                                        <div class="contact-info mb-1">
+                                            <div
+                                                class="icon icon-shape rounded-circle bg-gradient-white shadow text-info mr-2">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                            </div>
+                                            <p class="lead text-white mt-0 mb-0">
+                                                DOHA ,West bay – PALM Tower ; Floor 45 Post Box 55789
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <div id="mapQatar" class="map">
+                                        <div id="popup"></div>
+                                    </div>
+                                    <!-- <div id="mapQatar" class="map" (mouseleave)="moved()"><div id="popup"></div></div>
+                            <div id="info"></div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row text-center justify-content-center mt-4">
+            <div class="col-md-10">
+                <button class="btn btn-primary display-3 text-white" (click)='show = !show'>Contactez nous!</button>
+            </div>
+        </div> -->
+    </div>
+    <!-- SVG separator -->
+    <!-- <div class="separator separator-bottom separator-skew zindex-100">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+            xmlns="http://www.w3.org/2000/svg">
+            <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+    </div> -->
+</section>
+<!-- <section class="section section-lg pt-lg-0 section-contact-us">
+    <div class="container">
+        <div class="row justify-content-center mt--300">
+
+            
+        </div>
+    </div>
+</section> -->
+<div id="open-modal" class="modal-window" [hidden]='!show'>
+    <div class="overlyer" (click)='show = !show'></div>
+    <div class="card bg-gradient-secondary shadow">
+        <a title="Close" class="modal-close" (click)='show = !show'>Close</a>
+
+        <div class="card-body p-lg-5">
+            <h4 class="mb-1">Veuillez remplir le formulaire ci-joint:</h4>
+            <div class="form-group mt-5" [ngClass]="{'focused':focus===true}">
+                <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-user-run"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Nom" type="text" (focus)="focus=true" (blur)="focus=false">
+                </div>
+            </div>
+            <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Email" type="email" (focus)="focus1=true"
+                        (blur)="focus1=false">
+                </div>
+            </div>
+            <div class="form-group mb-4">
+                <textarea class="form-control form-control-alternative" name="name" rows="4" cols="80"
+                    placeholder="Votre message..."></textarea>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12 d-flex justify-content-center">
+                    <re-captcha class="" (resolved)="resolved($event)"
+                        siteKey="6Le0XqMZAAAAACQfl9tbO42ukz53HVL-7AVh8IRW">
+                    </re-captcha>
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-default btn-round btn-block btn-lg">Envoyer</button>
+            </div>
+        </div>
+    </div>
+</div>

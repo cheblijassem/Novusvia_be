@@ -1,0 +1,52 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+        <div class="header-body">
+
+        </div>
+    </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+    <!-- Table -->
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <h3 class="mb-0">Liste des demandes d'inscription</h3>
+                </div>
+                <div class="table-responsive">
+                    <ng2-smart-table (deleteConfirm)="deleteInscrit($event)" (custom)="detailInscrit($event)"
+                        [settings]="settings" [source]="inscrits">
+                    </ng2-smart-table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Dark table -->
+
+</div>
+<div class="modal-window" [hidden]='!showDetail'>
+    <div class="overlyer" (click)='showDetail = !showDetail'></div>
+    <div>
+        <a title="Close" class="modal-close" (click)='showDetail = !showDetail'>Close</a>
+        <div class="row">
+            <div class="form-group col-md-6">
+                Email : {{detailInfo.email}}
+            </div>
+            <div class="form-group col-md-6">
+                Username : {{detailInfo.username}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-6">
+                detail : {{detailInfo.detail}}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <button *ngIf="detailInfo.enabled == false" class="btn btn-primary" (click)=enable(detailInfo.id)>Activer</button>
+            <button *ngIf="detailInfo.enabled == true" class="btn btn-outline-success" [disabled]="true" (click)=enable(detailInfo.id)>Actived</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+@media (max-width: 636.98px) {
+  .Copyright span {
+    display: block;
+  }
+}
+
+footer h5 {
+  font-size: 1rem;
+  line-height: 1.375;
+  font-family: Rubik, Arial, sans-serif;
+  font-weight: 500;
+  color: #2eb58f;
+}
+
+footer a {
+  color: #2eb58f;
+  font-weight: 500;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+footer a:hover {
+  color: #163f6d;
+  text-decoration: none;
+}
+
+footer {
+  background: #f4f5f7;
+  /* fallback for old browsers */
+  box-shadow: 0 4px 80px #000;
+}
+
+.Copyright {
+  color: #163f6d;
+}
+
+.Copyright span {
+  color: #2eb58f;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+  font-family: "Open Sans", sans-serif !important;
+}
+
+.devs .tooltip-inner {
+  background-color: #fff;
+}
+h4 {
+  color: #2eb58f !important;
+  font-size: 15px;
+}
+
+.devs .arrow::before {
+  border-top-color: #fff;
+}
+.rt {
+  font-size: 12px;
+}

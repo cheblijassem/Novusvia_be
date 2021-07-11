@@ -1,0 +1,16 @@
+<app-navbar (onchangeLang)="changeLang($event)"></app-navbar>
+<router-outlet></router-outlet>
+<div class="container-fluid">
+    <div id="agora_local">
+    </div>
+    <div class="remote-containers">
+        <div class="remote_calls" *ngFor="let remote of remoteCalls;" [id]="remote">
+        </div>
+    </div>
+    <button (click)="startCall()">Start Call</button>
+    <div class="container-fluid">
+        <app-admin-footer></app-admin-footer>
+    </div>
+    <app-admin-footer></app-admin-footer>
+</div>
+<app-footer></app-footer>

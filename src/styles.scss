@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ng-snotify/styles/material";
+div.bg-gradient-danger {
+    background: #163f6d !important;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #163f6d, #28b98e) !important;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #163f6d, #28b98e) !important;
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

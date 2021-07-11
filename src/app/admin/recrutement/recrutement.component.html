@@ -1,0 +1,495 @@
+<div class="modal-window1" [hidden]='!showCat'>
+  <div class="overlyer" (click)='showCat = !showCat'></div>
+  <div>
+    <a title="Close" class="modal-close" (click)='showCat = !showCat'>Close</a>
+
+    <form role="form" [formGroup]="formCategory" (ngSubmit)="addCategory()">
+      <div class="row">
+        <div class="form-group col-md-6">
+          <div class="input-group input-group-alternative">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+            </div>
+            <input class="form-control" placeholder="Label" type="text" formControlName="label" name="label">
+          </div>
+          <div
+            *ngIf="formCategory.controls['label'].invalid && (formCategory.controls['label'].dirty || formCategory.controls['label'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="formCategory.controls['label'].errors.required">
+              Label est obligatoire.
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="input-group input-group-alternative">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+            </div>
+            <input type="file" class="form-control" placeholder="Image" (change)="uploadFileCategory($event)">
+
+          </div>
+          <div
+            *ngIf="formCategory.controls['image'].invalid && (formCategory.controls['image'].dirty || formCategory.controls['image'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="formCategory.controls['image'].errors.required">
+              image est obligatoire.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-12">
+          <div class="input-group input-group-alternative">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+            </div>
+            <textarea class="form-control" placeholder="Description" cols="30" rows="10" type="text"
+              formControlName="description" name="description"></textarea>
+
+          </div>
+          <div
+            *ngIf="formCategory.controls['description'].invalid && (formCategory.controls['description'].dirty || formCategory.controls['description'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="formCategory.controls['description'].errors.required">
+              description est obligatoire.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button *ngIf="!loaderButton" type="submit" [disabled]="formCategory.pristine || formCategory.invalid"
+          class="btn btn-primary mt-4">Soumettre</button><button *ngIf="loaderButton" class="btn btn-primary mt-4">
+          <div class="loader">Loading...</div>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="modal-window1" [hidden]='!show'>
+  <div class="overlyer" (click)='show = !show;selectedCategory = "Selectioner une catégorie"'></div>
+  <div>
+    <a title="Close" class="modal-close" (click)='show = !show;selectedCategory = "Selectioner une catégorie"'>Close</a>
+
+    <form role="form" [formGroup]="form" (ngSubmit)="addAd()">
+
+      <div class="row">
+        <div class="form-group col-md-12">
+          <div class="" ngbDropdown style="width: 100%;margin: 2%;">
+            <button (blur)="categoryTouched()" style="width: 100%" class="btn btn-secondary dropdown-toggle"
+              type="button" id="dropdownMenuButton" ngbDropdownToggle>
+              {{selectedCategory}}
+            </button>
+            <div class="" aria-labelledby="dropdownMenuButton" ngbDropdownMenu style="width: 100%">
+              <a class="dropdown-item" *ngFor="let cat of category" (click)="affectpost(cat)">{{cat.label}}</a>
+            </div>
+          </div>
+          <div *ngIf="categorySelected == false && form.controls['category'].touched" class="alert alert-danger">
+            <div *ngIf="form.controls['category'].errors.required">
+              Titre est obligatoire.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <div class="input-group input-group-alternative">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+            </div>
+            <input class="form-control" placeholder="Titre" type="text" formControlName="title" name="title">
+          </div>
+          <div
+            *ngIf="form.controls['title'].invalid && (form.controls['title'].dirty || form.controls['title'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="form.controls['title'].errors.required">
+              Titre est obligatoire.
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="input-group input-group-alternative">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+            </div>
+            <input class="form-control" placeholder="Domaine" type="text" formControlName="entreprise"
+              name="entreprise">
+          </div>
+          <div
+            *ngIf="form.controls['entreprise'].invalid && (form.controls['entreprise'].dirty || form.controls['entreprise'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="form.controls['entreprise'].errors.required">
+              entreprise est obligatoire.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6">
+          <div class="input-group input-group-alternative">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+            </div>
+            <input class="form-control" placeholder="Pays" type="text" formControlName="adresse" name="adresse">
+          </div>
+          <div
+            *ngIf="form.controls['adresse'].invalid && (form.controls['adresse'].dirty || form.controls['adresse'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="form.controls['adresse'].errors.required">
+              adresse est obligatoire.
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="input-group input-group-alternative">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+            </div>
+            <input type="file" class="form-control" placeholder="Image" (change)="uploadFile($event)">
+
+          </div>
+          <div
+            *ngIf="form.controls['image'].invalid && (form.controls['image'].dirty || form.controls['image'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="form.controls['image'].errors.required">
+              image est obligatoire.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-12">
+          <div class="input-group input-group-alternative">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+            </div>
+            <textarea class="form-control" placeholder="Description" cols="30" rows="10" type="text"
+              formControlName="description" name="description"></textarea>
+
+          </div>
+          <div
+            *ngIf="form.controls['description'].invalid && (form.controls['description'].dirty || form.controls['description'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="form.controls['description'].errors.required">
+              description est obligatoire.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button *ngIf="!loaderButton" type="submit" [disabled]="form.pristine || form.invalid"
+          class="btn btn-primary mt-4">Soumettre</button><button *ngIf="loaderButton" class="btn btn-primary mt-4">
+          <div class="loader">Loading...</div>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      <!-- <div class="row">
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Traffic</h5>
+                  <span class="h2 font-weight-bold mb-0">350,897</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                    <i class="fas fa-chart-bar"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                <span class="text-nowrap">Since last month</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
+                  <span class="h2 font-weight-bold mb-0">2,356</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                    <i class="fas fa-chart-pie"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 3.48%</span>
+                <span class="text-nowrap">Since last week</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
+                  <span class="h2 font-weight-bold mb-0">924</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                    <i class="fas fa-users"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span>
+                <span class="text-nowrap">Since yesterday</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
+                  <span class="h2 font-weight-bold mb-0">49,65%</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                    <i class="fas fa-percent"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
+                <span class="text-nowrap">Since last month</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+ -->
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">Liste des demandes de recrutement</h3>
+        </div>
+        <div class="table-responsive">
+          <ng2-smart-table (deleteConfirm)="deleteRecrutement($event)" (custom)="detailRecrutement($event)"
+            [settings]="settings" [source]="recrutements">
+          </ng2-smart-table>
+        </div>
+        <!-- <div class="card-footer py-4">
+          <nav aria-label="...">
+            <ul class="pagination justify-content-end mb-0">
+              <li class="page-item disabled">
+                <a class="page-link" href="javascript:void(0)" tabindex="-1">
+                  <i class="fas fa-angle-left"></i>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="javascript:void(0)">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">2 <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">
+                  <i class="fas fa-angle-right"></i>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Liste des catégories des annonces</h3>
+            </div>
+            <div class="col-4 text-right">
+              <button class="btn btn-sm btn-primary" (click)='showCat = !showCat'>ajouter une category</button>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <ng2-smart-table (deleteConfirm)="deleteCategory($event)" [settings]="settingsc" [source]="category">
+          </ng2-smart-table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Dark table -->
+  <div class="row mt-5">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Liste des annonces de recrutement</h3>
+            </div>
+            <div class="col-4 text-right">
+              <button class="btn btn-sm btn-primary" (click)='show = !show'>ajouter une annonce</button>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-12">
+              <div class="row d-flex align-items-center justify-content-center">
+                <div class="card-wrap" *ngFor="let ad of ads">
+                  <div class="card shadow border-0">
+                    <article class="card-post">
+                      <i class="fas fa-trash btn-sm btn-danger delete-post" (click)='deleteAd(ad.id)'></i>
+                      <!-- <div class="thumb"
+                        [style.background-image]="'url(https://testinghost.yj.fr/web/uploads/' + ad.image +')'">
+                      </div> -->
+                      <!-- <div class="thumb"
+                        [style.background-image]="'url(http://localhost/Post-Rest-symfony-master/web/uploads/' + ad.image +')'">
+                      </div> -->
+                      <div class="thumb"
+                        [style.background-image]="'url(https://novusvia.be/web/uploads/' + ad.image +')'">
+                      </div>
+                      <div class="infos">
+                        <h2 class="title">{{ad.label}}<span class="flag"></span></h2>
+                        <h3 class="date">{{ad.entreprise}}</h3>
+                        <h3 class="seats">{{ad.adresse}}</h3>
+                        <p class="txt">
+                          {{ad.description}}
+                        </p>
+                        <h3 class="details">event details</h3>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-window" [hidden]='!showDetail'>
+  <div class="overlyer" (click)='showDetail = !showDetail'></div>
+  <div>
+    <a title="Close" class="modal-close" (click)='showDetail = !showDetail'>Close</a>
+    <div class="row">
+      <div class="form-group col-md-6">
+        Sexe : {{detailInfo.genre}}
+      </div>
+      <div class="form-group col-md-6">
+        Prenom : {{detailInfo.prenom}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-6">
+        Nom : {{detailInfo.nom}}
+      </div>
+      <div class="form-group col-md-6">
+        Pays : {{detailInfo.pays}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        Ville : {{detailInfo.ville}}
+      </div>
+      <div class="form-group col-md-6">
+        Adresse : {{detailInfo.adresse}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-6">
+        Code Postal : {{detailInfo.code_postal}}
+      </div>
+      <div class="form-group col-md-6">
+        Email : {{detailInfo.email}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-6">
+        Telephone : {{detailInfo.telephone}}
+      </div>
+      <div class="form-group col-md-6">
+        Sujet : {{detailInfo.sujet}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-6">
+        etat :
+        <span class="badge badge-success" *ngIf="detailInfo.approved == true">Accepté</span>
+        <span class="badge badge-danger" *ngIf="detailInfo.approved == false">Réfusé</span>
+        <span class="badge badge-warning" *ngIf="detailInfo.approved == 'en attente'">En attente</span>
+      </div>
+      <div class="form-group col-md-6">
+        <!-- <button (click)="openCV(detailInfo.cv)" class="btn btn-success">ouvrir CV</button> -->
+        <a href="https://novusvia.be/web/uploads/{{detailInfo.cv}}" target="_tab" class="btn btn-success">ouvrir
+          CV</a>
+        <!-- <a href="http://localhost/Post-Rest-symfony-master/web/uploads/{{detailInfo.cv}}" target="_tab"
+          class="btn btn-sm btn-primary">ouvrir CV <i class="fas fa-external-link-alt"></i></a> -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        Motivation : {{detailInfo.motivation}}
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col">
+        <div class="text-center">
+          <button *ngIf="detailInfo.approved != true" (click)='acceptRecrutementRequest(detailInfo.id)'
+            class="btn btn-success mt-4">Accepter</button>
+          <button *ngIf="detailInfo.approved != false" (click)='refuseRecrutementRequest(detailInfo.id)'
+            class="btn btn-danger mt-4">Refuser</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <h3 class="mb-0">Liste des demandes d'acces</h3>
+          </div>
+          <div class="table-responsive">
+            <ng2-smart-table (deleteConfirm)="refuseRecrutement($event)" (custom)="acceptRecrutement($event)"
+              [settings]="settings2" [source]="detailInfo.profiles">
+            </ng2-smart-table>
+          </div>
+        </div>
+
+      </div>
+    </div>

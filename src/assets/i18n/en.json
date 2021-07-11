@@ -1,0 +1,46 @@
+{
+    "HOME": {
+        "titre1": "Consulting Firm | Support | HR advice",
+        "titre2": "With NOVUSVIA, you are trained, supported and advised by experts in business management and development",
+        "meet": "You can book a meeting with one of our consultants",
+        "button": "click here",
+        "newsletter": "Please enter your email address below",
+        "concept": "A different concept",
+        "concept1": "Beyond a new vision, NOVUSVIA's consultants allow you to take a step back by being accompanied in a secure environment, in order to measure the consequences of the orientations you instill in the company.",
+        "concept2": "Of course, NOVUSVIA consultants benefit from an experienced look at your business. We have a pragmatic vision of the market in which you operate. Indeed, NOVUSVIA consultants complete their technical watch on our areas of expertise by observing and exchanging markets at local, national and international level."
+    },
+    "navbar": {
+        "Accueil": "Home",
+        "Metier": "our jobs",
+        "rh": "Human ressources",
+        "formation": "trainings",
+        "Evenements": "Events",
+        "Contact": "Contact"
+    },
+    "metier": {
+        "accompagnement": "The accompaniment",
+        "Conseil": "advice",
+        "Creation": "Business creation",
+        "Social": "Social",
+        "plus": "Know more",
+        "1h1": "A new concept to better support you",
+        "1p1": "You want to delegate your regulatory obligations, identify possible risks, optimize your accounting and tax options by integrating your economic environment. You are looking for a professional at your disposal to proactively support you for a methodology and recommendations as you develop.",
+        "1h2": "Des solutions adaptées à chaque situation",
+        "1p2": "Volontairement, nous approchons chacun de vos enjeux sous un angle neuf et indépendant, en partenaire afin de vous apporter une vision juste, enrichie de la multiplicité de nos savoir-faire. NOVUSVIA a toujours pour priorité, de vous assurer une sécurité maximale au-delà de ses conseils",
+        "2p1": "Behind each fact, each issue, each project, several paths open to the manager. Which path to choose? In what conditions ? At what moment ? When to change course? These are all questions that NOVUSVIA can answer. They support you in your decision-making for optimal efficiency",
+        "2h1": "A wider field of expertise.",
+        "2p2": "The professions of NOVUSVIA are those in the sphere of support and advice. The concept revolves around three strong objectives:",
+        "2p3": "Anticipate to better support its customers",
+        "2p4": "Structurer avec exigence les outils et les méthodes",
+        "2p5": "Guarantee an optimal level of safety and quality",
+        "2p6": "Identify the risks inherent in the business in order to better control them.",
+        "2p7": "To achieve these objectives, NOVUSVIA offers its clients a set of missions and advice on all aspects of their managerial role. Whatever the field of activity, the objective or the problem.",
+        "3p": "Our Company allows you to set up your business without any travel to Tunisia in a record 48 hours for API approval and 48 hours for legal formalities after having paid the capital into an unavailable account. NOVUSVIA advises you before setting up on the choice to be made in terms of the tax system and the appropriate legal status in various sectoral branches. The investment can be made by the creation of a company, by the acquisition of a participation in the capital of a new company, by the subscription to the capital increase of an existing company, the creation of a branch or a liaison office or through the acquisition of Tunisian securities.",
+        "4h1": "Des solutions adaptées à chaque situation",
+        "4p1": "To each of the challenges that you share with us, there is an organization of people and skills in social matters. Our ambition is to provide you with tailor-made solutions in terms of payroll management, advice in labor law and social law, social audit, assistance in personnel management, etc.",
+        "4h2": "Des avantages concrets",
+        "5h1": "Surround yourself with the best skills.",
+        "5h2": "Are you looking for a senior executive, an administrative and financial director, a purchasing manager or a logistician, ... thanks to our mastery of these professions, we guarantee you the right job / profile match.",
+        "5h3": "Consult the offers"
+    }
+}

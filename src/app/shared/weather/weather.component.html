@@ -1,0 +1,89 @@
+<div class="container weather" id="wrapper">
+    <div class="container-fluid" id="current-weather">
+        <div class="row">
+
+            <div class="col-md-4 col-sm-5">
+                <h5>
+                    <span id="cityName">{{cityName}}</span>, <span id="cityCode">{{cityCode}}</span>
+                </h5>
+                <h6 id="localDate">{{localDate}}</h6>
+                <h5 id="localTime">{{time}}</h5>
+            </div>
+
+            <div class="col-md-4 col-sm-5" style="margin: 10px auto;padding:0;">
+                <div class="row" style="flex-direction: column;
+                align-content: center;">
+                    <i class="wi" id="main-icon" style="font-size: 60px;" [ngClass]="main_icon"></i>
+                    <div style="display: flex;flex-direction: row;
+                    align-content: center;">
+                        <span id="mainTemperature">{{mainTemperature}}</span>
+                        <p style="font-size: 1.5rem;" id="celcius">°C</p>
+                    </div>
+                    <p id="tempDescription">{{tempDescription}}</p>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 row" style="text-align: left;">
+                <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
+                    <h6>Humidity: <span id="humidity">{{humidity}}</span>%</h6>
+                </div>
+                <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
+                    <h6>Wind: <span id="wind">{{wind}}</span> m/s</h6>
+                </div>
+                <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
+                    <h6>High: <span id="mainTempHot">{{mainTempHot}}</span>°</h6>
+                </div>
+                <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
+                    <h6>Low: <span id="mainTempLow">{{mainTempLow}}</span>°</h6>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="protocol-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>Due to weather api restrictions, data can only be shown via HTTP request.</p>
+                    <p>Sorry for the inconvenience.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row" style="padding: 2px;">
+
+            <div class="col-md-6 col-sm-6 day-weather-box" *ngFor="let item of forecast.list">
+                <div class="col-sm-12 day-weather-inner-box">
+                    <div class="col-sm-6 forecast-main">
+                        <p>{{item.dt}}</p>
+                        <div class="row" style="display: flex;
+                        justify-content: center;">
+                            <h5>{{item.temp.day | number:'1.0-0'}}°</h5>
+                            <i class="wi forecast-icon" [ngClass]="item.weather"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 forecast-min-low">
+                        <p>
+                            <span class="high-temperature">{{item.temp.max | number:'1.0-0'}}</span>
+                        </p>
+                        <p>
+                            <span class="low-temperature">{{item.temp.min | number:'1.0-0'}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

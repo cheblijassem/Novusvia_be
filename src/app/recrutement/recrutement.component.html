@@ -1,0 +1,700 @@
+<main>
+  <main class="profile-page">
+    <section class="section section-shaped">
+      <div class="shape shape-style-1 shape-primary">
+        <span class="span-150"></span>
+        <span class="span-50"></span>
+        <span class="span-50"></span>
+        <span class="span-75"></span>
+        <span class="span-100"></span>
+        <span class="span-75"></span>
+        <span class="span-50"></span>
+        <span class="span-100"></span>
+        <span class="span-50"></span>
+        <span class="span-100"></span>
+      </div>
+      <div class="container">
+        <div class="card card-profile shadow">
+          <div class="px-4">
+            <div class="text-center mt-5">
+              <h1>Notre concept</h1>
+
+              <h3 class="description mt-3">
+                Le recrutement, c’est aussi votre métier !
+                C’est pourquoi chez NOVUSVIA, nous comprenons votre exigence dans la recherche
+                des meilleurs profils. C’est un challenge pour NOVUSVIA, dans un contexte où les
+                candidats sont de plus en plus difficiles à trouver et à fidéliser.
+                Leur méthode pour y arriver ?
+                Comprendre votre besoin et utiliser les meilleurs outils pour trouver votre futur
+                collaborateur dans notre base de données.
+              </h3>
+              <div class="meet" style="display: flex;flex-direction: column;">
+                <h2>Vous pouvez réserver une réunion avec l'un de nos consultants</h2>
+                <div style="display: flex;flex-direction: row;justify-content: center;align-self: center;">
+                  <button class="btn btn-block mb-3 btn-outline-dark" (click)="open(classic,'' , 'lg')">
+                    Cliquer ici
+                  </button>
+                  <!-- <img src="./assets/img/theme/meet.svg" alt="" style="width: 50%;"> -->
+                </div>
+
+
+                <ng-template #classic let-c="close" let-d="dismiss">
+                  <div class="modal-content">
+                    <div class="modal-body" style="height: 80vh;">
+                      <iframe src="https://calendly.com/novusvia/consultation?month=2020-11&date=2020-11-25"
+                        allowfullscreen frameborder="0" style="overflow:hidden;height:100%;width:100%" height="100%"
+                        width="100%"></iframe>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal"
+                        (click)="c('Close click')">Close</button>
+                    </div>
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+            <div class="container">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="position-relative">
+    <!-- Hero for FREE version -->
+
+
+
+    <section class="section section-shaped">
+      <!-- Background circles -->
+      <!-- <div class="container-fluid py-lg">
+
+        <div class="offset-8 col-lg-4">
+          <div class="btn-wrapper" style="float: right">
+            <p class="lead">
+              Vous êtes un recruteur! vous pouvez nou rejoindre</p>
+            <a [routerLink]="['/register']" class="btn btn-success text-white">Créer un compte</a>
+          </div>
+        </div>
+      </div> -->
+      <div class="container-fluid offers">
+        <div class="split left" [ngClass]="[clicked && op1  ? 'true' : '', clicked && !op1  ? 'false' : '']">
+          <div class="container-fluid scroller">
+            <h1>Consulter les offres d'emploi</h1>
+            <button (click)='option1()' class="button btn btn-primary" [hidden]="clicked && op1"><span
+                class="badge badge-primary">2</span> Offres disponibles</button>
+            <div class="container-fluid categories">
+              <div class="loading" *ngIf="loading">
+                <div class="loader4"></div>
+              </div>
+              <div class="row lst" *ngIf="!loading" [hidden]="!op1">
+                <div class="card" [ngClass]="cat.id===c.id && isOpen ? 'col-lg-12' : 'col-lg-3'"
+                  *ngFor="let cat of category">
+                  <figure class="front reveal" [ngClass]="cat.id===c.id && isOpen ? 'reveal' : ''">
+                    <!-- <figure class="front reveal" [class.reveal]="cat.id==toggled"> -->
+                    <div [ngClass]="cat.id===c.id ? '' : 'wrapper'"
+                      [style.background-image]="'url(https://novusvia.be/web/uploads/' + cat.image +')'">
+                      <!-- <div [ngClass]="cat.id===c.id ? '' : 'wrapper'"
+                    [style.background-image]="'url(https://testinghost.yj.fr/web/uploads/' + cat.image +')'"> -->
+                      <!-- <div [ngClass]="cat.id===c.id ? '' : 'wrapper'"
+                    [style.background-image]="'url(http://localhost/Post-Rest-symfony-master/web/uploads/' + cat.image +')'"> -->
+                      <div class="caption" [hidden]="cat.id===c.id" (click)="expend(cat)">
+                        <h2><span>{{cat.label}}</span></h2>
+                        <!-- <p>web developer</p> -->
+                      </div>
+                      <div class="container-fluid" style="background-color: #f8f9fe;" [hidden]="cat.id!==c.id">
+                        <div class="row jobs justify-content-center pb-4">
+                          <h3 style="width: 100%;text-align: center;"><span>{{cat.label}}</span></h3>
+                          <a title="Close" class="modal-close" (click)='close()'>×</a>
+                          <h5 *ngIf="cat.jobs?.length == 0" style="width: 100%;text-align: center;"><span>Pas
+                              d'offre
+                              disponible pour cette catégorie</span></h5>
+
+                          <!-- <div class="example-1 job-card col-md-6" *ngFor="let ad of cat.jobs">
+                          <div class="wrapper"
+                            [style.background-image]="'url(https://novusvia.be/web/uploads/' + ad.image +')'">
+                            <div class="date">
+                              <span class="day">{{ad.date| slice:8:10}}</span>
+                              <span class="month">{{ad.date| slice:5:7}}</span>
+                              <span class="year">{{ad.date| slice:0:4}}</span>
+                            </div>
+                            <div class="data">
+                              <div class="content">
+                                <span class="author">Entreprise: {{ad.entreprise}}</span>
+                                <h1 class="title">Titre: {{ad.label}}</h1>
+                                <p class="text">Domaine: {{ad.description}}</p>
+                                <button (click)='openmodal2()'
+                                  class="apply btn btn-sm btn-primary">Postuler</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div> -->
+                          <div class="card bg-gradient-success shadow-lg border-0 col-md-6" *ngFor="let ad of cat.jobs">
+                            <div class="p-5">
+                              <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                  <h3 class="text-white">{{ad.label}}</h3>
+                                  <p class="lead text-white mt-3">
+                                  </p>
+                                </div>
+                                <div class="col-lg-3 ml-lg-auto">
+                                  <a (click)='openmodal2()' class="btn btn-lg btn-block btn-primary">Postuler</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="split right" [ngClass]="[clicked && op2  ? 'true' : '', clicked && !op2  ? 'false' : '']">
+          <h2>Veuillez vous s'enregister pour la demande ou l'ajout des offres</h2>
+          <button (click)='option2()' class="button btn btn-success" [hidden]="clicked && op2"><span
+              class="badge badge-primary">4</span> Demandes disponibles</button>
+          <div class="container-fluid" *ngIf="clicked && op2">
+            <!-- <h2>vous devez être connecté pour voir les offres</h2> -->
+            <button class="button btn btn-success" [routerLink]="['/login']">Se connecter</button>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="container-fluid" hidden>
+        <h3 class="h4 text-success font-weight-bold mb-4">Tabs</h3>
+        <div class="row justify-content-center">
+          <div class="col-lg-12">
+            <div class="mb-3">
+              <small class="text-uppercase font-weight-bold">With icons</small>
+            </div>
+            <ngb-tabset [justify]="'center'" class="custom-tab-content flex-column flex-md-row" type="pills">
+              <ngb-tab>
+                <ng-template ngbTabTitle>Offres d'emploi
+                </ng-template>
+                <ng-template ngbTabContent>
+
+                </ng-template>
+              </ngb-tab>
+              <ngb-tab>
+                <ng-template ngbTabTitle>Demandes d'emploi
+                </ng-template>
+                <ng-template ngbTabContent>
+                  <p class="description">Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat
+                    salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+                </ng-template>
+              </ngb-tab>
+            </ngb-tabset>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div class="container shape-container d-flex align-items-center">
+        <div class="row row-grid justify-content-between align-items-center">
+          <div class="col-lg-12">
+            <h3 class="display-3">Candidatures :</h3>
+            <p class="lead">
+              Vous pouvez trouver des candidatures ci-dessous, n'hésitez pas à postuler a celle qui correspond à vos
+              compétances</p>
+          </div>
+          <div class="col-lg-12">
+            <div class="justify-content-center">
+
+
+            </div>
+
+          </div>
+
+        </div>
+      </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div id="open-modal" class="modal-window" [hidden]='!show'>
+        <div class="overlyer" (click)='show = !show;form.reset()'></div>
+        <div>
+          <a title="Close" class="modal-close" (click)='show = !show;form.reset()'>×</a>
+
+          <form role="form" [formGroup]="form" (ngSubmit)="addRecrutement()">
+            <div class="row">
+              <div class="" ngbDropdown style="width: 100%;margin: 2%;">
+                <button style="width: 100%" class="btn btn-secondary dropdown-toggle" type="button"
+                  id="dropdownMenuButton" ngbDropdownToggle>
+                  {{posteName}}
+                </button>
+                <div class="" aria-labelledby="dropdownMenuButton" ngbDropdownMenu style="width: 100%">
+                  <a class="dropdown-item" *ngFor="let job of c.jobs" (click)="openmodal(job)">
+                    <h5>{{job.label}}</h5>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative mb-3">
+                  <select class="form-control" type="text" name="genre" formControlName="genre">
+                    <option value="" disabled [selected]>Selectionner votre sexe</option>
+                    <option [ngValue]="">Mr</option>
+                    <option [ngValue]="">Mme</option>
+                  </select>
+                </div>
+                <div
+                  *ngIf="form.controls['genre'].invalid && (form.controls['genre'].dirty || form.controls['genre'].touched || form.controls['genre'].value == 'Selectionner votre sexe')"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['genre'].errors.required">
+                    Genre est obligatoire.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative mb-3">
+                  <input class="form-control" placeholder="Prenom" type="text" formControlName="prenom" name="prenom">
+                </div>
+                <div
+                  *ngIf="form.controls['prenom'].invalid && (form.controls['prenom'].dirty || form.controls['prenom'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['prenom'].errors.required">
+                    Prenom est obligatoire.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative">
+                  <input class="form-control" placeholder="Nom" type="text" formControlName="nom" name="nom">
+                </div>
+                <div
+                  *ngIf="form.controls['nom'].invalid && (form.controls['nom'].dirty || form.controls['nom'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['nom'].errors.required">
+                    Nom est obligatoire.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative">
+                  <input class="form-control" placeholder="Pays" type="text" formControlName="pays" name="pays"
+                    style="display: none;">
+                  <mat-select-country label="Pays" (click)="paysSelected()"
+                    (onCountrySelected)="onCountrySelected($event)">
+                  </mat-select-country>
+                </div>
+                <div
+                  *ngIf="form.controls['pays'].invalid && (form.controls['pays'].dirty || form.controls['pays'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['pays'].errors.required">
+                    Pays est obligatoire.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative">
+                  <input class="form-control" placeholder="Ville" type="text" formControlName="ville" name="ville">
+                </div>
+                <div
+                  *ngIf="form.controls['ville'].invalid && (form.controls['ville'].dirty || form.controls['ville'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['ville'].errors.required">
+                    Ville est obligatoire.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative">
+                  <input class="form-control" placeholder="Adresse" type="text" formControlName="adresse"
+                    name="adresse">
+                </div>
+                <div
+                  *ngIf="form.controls['adresse'].invalid && (form.controls['adresse'].dirty || form.controls['adresse'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['adresse'].errors.required">
+                    Adresse est obligatoire.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative">
+                  <input class="form-control" placeholder="Code postal" type="text" formControlName="code_postal"
+                    name="code_postal">
+                </div>
+                <div
+                  *ngIf="form.controls['code_postal'].invalid && (form.controls['code_postal'].dirty || form.controls['code_postal'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['code_postal'].errors.required">
+                    Code postal est obligatoire.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative">
+                  <input class="form-control" placeholder="Email" type="text" formControlName="email" name="email">
+                </div>
+                <div
+                  *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['email'].errors.required">
+                    Email est obligatoire.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative">
+                  <input class="form-control" placeholder="Telephone" type="text" formControlName="telephone"
+                    name="telephone">
+                </div>
+                <div
+                  *ngIf="form.controls['telephone'].invalid && (form.controls['telephone'].dirty || form.controls['telephone'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['telephone'].errors.required">
+                    Telephone est obligatoire.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative">
+                  <input type="file" class="form-control" placeholder="CV" (click)="fileSelected()"
+                    (change)="uploadFile($event)">
+                </div>
+                <div *ngIf="form.controls['cv'].invalid && (form.controls['cv'].dirty || form.controls['cv'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['cv'].errors.required">
+                    Cv est obligatoire.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-12">
+                <div class="input-group input-group-alternative">
+                  <textarea class="form-control" placeholder="Motivation" cols="30" rows="3" type="text"
+                    formControlName="motivation" name="motivation"></textarea>
+                </div>
+                <div
+                  *ngIf="form.controls['motivation'].invalid && (form.controls['motivation'].dirty || form.controls['motivation'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['motivation'].errors.required">
+                    Motivation est obligatoire.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12 d-flex justify-content-center">
+                <re-captcha class="" (resolved)="resolved($event)" siteKey="6Le0XqMZAAAAACQfl9tbO42ukz53HVL-7AVh8IRW">
+                </re-captcha>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button *ngIf="!loaderButton" type="submit" [disabled]="form.pristine || form.invalid || !resolvedCaptcha"
+                class="btn btn-primary mt-4">Soumettre</button><button *ngIf="loaderButton"
+                class="btn btn-primary mt-4">
+                <div class="loader">Loading...</div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="open-modal" class="modal-window" [hidden]='!show2'>
+        <div class="overlyer" (click)='show2 = !show2;form.reset()'></div>
+        <div>
+          <a title="Close" class="modal-close" (click)='show2 = !show2;form.reset()'>×</a>
+
+          <form role="form" [formGroup]="form" (ngSubmit)="addRecrutement2()">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative mb-3">
+                  <select class="form-control" type="text" name="genre" formControlName="genre">
+                    <option value="" disabled [selected]>Selectionner votre sexe</option>
+                    <option [ngValue]="">Mr</option>
+                    <option [ngValue]="">Mme</option>
+                  </select>
+                </div>
+                <div
+                  *ngIf="form.controls['genre'].invalid && (form.controls['genre'].dirty || form.controls['genre'].touched || form.controls['genre'].value == 'Selectionner votre sexe')"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['genre'].errors.required">
+                    Genre est obligatoire.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative mb-3">
+                  <input class="form-control" placeholder="Prenom" type="text" formControlName="prenom" name="prenom">
+                </div>
+                <div
+                  *ngIf="form.controls['prenom'].invalid && (form.controls['prenom'].dirty || form.controls['prenom'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['prenom'].errors.required">
+                    Prenom est obligatoire.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative">
+                  <input class="form-control" placeholder="Nom" type="text" formControlName="nom" name="nom">
+                </div>
+                <div
+                  *ngIf="form.controls['nom'].invalid && (form.controls['nom'].dirty || form.controls['nom'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['nom'].errors.required">
+                    Nom est obligatoire.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative">
+                  <input class="form-control" placeholder="Pays" type="text" formControlName="pays" name="pays"
+                    style="display: none;">
+                  <mat-select-country label="Pays" (click)="paysSelected()"
+                    (onCountrySelected)="onCountrySelected($event)">
+                  </mat-select-country>
+                </div>
+                <div
+                  *ngIf="form.controls['pays'].invalid && (form.controls['pays'].dirty || form.controls['pays'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['pays'].errors.required">
+                    Pays est obligatoire.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative">
+                  <input class="form-control" placeholder="Ville" type="text" formControlName="ville" name="ville">
+                </div>
+                <div
+                  *ngIf="form.controls['ville'].invalid && (form.controls['ville'].dirty || form.controls['ville'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['ville'].errors.required">
+                    Ville est obligatoire.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative">
+                  <input class="form-control" placeholder="Adresse" type="text" formControlName="adresse"
+                    name="adresse">
+                </div>
+                <div
+                  *ngIf="form.controls['adresse'].invalid && (form.controls['adresse'].dirty || form.controls['adresse'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['adresse'].errors.required">
+                    Adresse est obligatoire.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative">
+                  <input class="form-control" placeholder="Code postal" type="text" formControlName="code_postal"
+                    name="code_postal">
+                </div>
+                <div
+                  *ngIf="form.controls['code_postal'].invalid && (form.controls['code_postal'].dirty || form.controls['code_postal'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['code_postal'].errors.required">
+                    Code postal est obligatoire.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative">
+                  <input class="form-control" placeholder="Email" type="text" formControlName="email" name="email">
+                </div>
+                <div
+                  *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['email'].errors.required">
+                    Email est obligatoire.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative">
+                  <input class="form-control" placeholder="Telephone" type="text" formControlName="telephone"
+                    name="telephone">
+                </div>
+                <div
+                  *ngIf="form.controls['telephone'].invalid && (form.controls['telephone'].dirty || form.controls['telephone'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['telephone'].errors.required">
+                    Telephone est obligatoire.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-alternative">
+                  <input type="file" class="form-control" placeholder="CV" (click)="fileSelected()"
+                    (change)="uploadFile($event)">
+                </div>
+                <div *ngIf="form.controls['cv'].invalid && (form.controls['cv'].dirty || form.controls['cv'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['cv'].errors.required">
+                    Cv est obligatoire.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-12">
+                <div class="input-group input-group-alternative">
+                  <input class="form-control" placeholder="Nom du poste souhaité" type="text"
+                    formControlName="motivation" name="motivation">
+                </div>
+                <div
+                  *ngIf="form.controls['motivation'].invalid && (form.controls['motivation'].dirty || form.controls['motivation'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form.controls['motivation'].errors.required">
+                    nom du poste souhaité est obligatoire.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12 d-flex justify-content-center">
+                <re-captcha class="" (resolved)="resolved($event)" siteKey="6Le0XqMZAAAAACQfl9tbO42ukz53HVL-7AVh8IRW">
+                </re-captcha>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button *ngIf="!loaderButton" type="submit" [disabled]="form.pristine || form.invalid || !resolvedCaptcha"
+                class="btn btn-primary mt-4">Soumettre</button><button *ngIf="loaderButton"
+                class="btn btn-primary mt-4">
+                <div class="loader">Loading...</div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </section>
+    <section class="section pt-lg-0 mt--50">
+
+
+    </section>
+    <div class="container shape-container d-flex align-items-center" style="margin-top: 100px;">
+      <div class="row row-grid justify-content-between align-items-center">
+        <div class="col-lg-12">
+          <h3 class="text-white">Si cette liste d'opportunités ne vous convient pas, vous pouvez déposer voter cv ici
+          </h3>
+          <a (click)='openmodal2()' class="btn btn-info text-white mb-2">Déposer mon cv</a>
+          <h3 class="col-lg-12 mb-8 text-white">
+            Vous serez averti dès que nous trouverons un emploi qui correspond à vos compétances</h3>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <!-- <app-sections></app-sections> -->
+</main>
+
+<!-- <main>
+
+  <div class="position-relative">
+
+    <section class="section section-lg section-shaped bg-gradient-default">
+      <div class="shape shape-style-1 shape-primary">
+        <span class="span-150"></span>
+        <span class="span-50"></span>
+        <span class="span-50"></span>
+        <span class="span-75"></span>
+        <span class="span-100"></span>
+        <span class="span-75"></span>
+        <span class="span-50"></span>
+        <span class="span-100"></span>
+        <span class="span-50"></span>
+        <span class="span-100"></span>
+      </div>
+      <div class="container concept">
+        <div class="container pt-lg pb-100">
+          <div class="row text-center justify-content-center">
+            <div class="col-lg-10">
+              <h2 class="display-3 text-white">Un concept différent</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row row-grid align-items-center">
+
+          <div class="col-md-6">
+
+            <div class="card bg-default shadow border-0">
+              <img src="./assets/img/theme/service1.svg" class="card-img-top">
+              <blockquote class="card-blockquote">
+                <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95" class="svg-bg">
+                  <polygon points="0,52 583,95 0,95" class="fill-default" />
+                  <polygon points="0,42 583,95 683,0 0,95" opacity=".2" class="fill-default" />
+                </svg>
+                <p class="lead text-italic text-white">Au-delà d’une vision nouvelle, NOVUSVIA vous permettent de
+                  prendre du recul en étant
+                  accompagné dans un cadre sécurisant, afin de mesurer les conséquences des
+                  orientations que vous insufflez à l’entreprise.</p>
+              </blockquote>
+            </div>
+          </div>
+          <div class="col-md-6 service2">
+            <div class="card bg-default shadow border-0">
+              <img src="./assets/img/theme/service2.svg" class="card-img-top">
+              <blockquote class="card-blockquote">
+                <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95" class="svg-bg">
+                  <polygon points="0,52 583,95 0,95" class="fill-default" />
+                  <polygon points="0,42 583,95 683,0 0,95" opacity=".2" class="fill-default" />
+                </svg>
+                <p class="lead text-italic text-white">Bien sûr, NOVUSVIA, bénéficient d’un regard expérimenté sur votre
+                  activité. Nous avons
+                  une vision pragmatique du marché où vous évoluez. En effet, NOVUSVIA, complètent
+                  leur veille technique sur nos domaines de compétences par une observation et un
+                  échange des marchés au niveau local, national et international.</p>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main> -->

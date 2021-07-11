@@ -1,0 +1,558 @@
+<div class="container-fluid parent">
+  <main class="first">
+
+    <!--   <div class="container weather" id="wrapper">
+        <div class="container-fluid" id="current-weather">
+          <div class="row">
+    
+            <div class="col-md-4 col-sm-5">
+              <h5>
+                <span id="cityName"></span>, <span id="cityCode"></span>
+              </h5>
+              <h6 id="localDate"></h6>
+              <h5 id="localTime">{{time}}</h5>
+              <a id="refreshButton" href="#"><i class="fa fa-refresh fa-fw" aria-hidden="true"></i> Refresh</a>
+            </div>
+    
+            <div class="col-md-5 col-sm-7" style="margin: 10px auto;padding:0;">
+              <div class="row">
+                <i class="wi" id="main-icon" style="font-size: 85px;"></i>
+                <div>
+                  <span id="mainTemperature"></span>
+                  <p id="tempDescription"></p>
+                </div>
+                <p style="font-size: 1.5rem;"><a href="#" class="active" id="celcius">°C</a> | <a href="#"
+                    id="farenheit">°F</a></p>
+              </div>
+            </div>
+    
+            <div class="col-xs-12 col-sm-12 col-md-3 row" style="text-align: right;">
+              <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
+                <h6>Humidity: <span id="humidity"></span>%</h6>
+              </div>
+              <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
+                <h6>Wind: <span id="wind"></span> m/s</h6>
+              </div>
+              <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
+                <h6>High: <span id="mainTempHot"></span>°</h6>
+              </div>
+              <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
+                <h6>Low: <span id="mainTempLow"></span>°</h6>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+        <div class="modal fade" id="protocol-modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                <p>Due to weather api restrictions, data can only be shown via HTTP request.</p>
+                <p>Sorry for the inconvenience.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="container-fluid">
+          <div class="row" style="padding: 2px;">
+    
+            <div class="col-md-3 col-sm-6 day-weather-box" *ngFor="let item of forecast.list">
+              <div class="col-sm-12 day-weather-inner-box">
+                <div class="col-sm-8 forecast-main">
+                  <p>{{item.dt}}</p>
+                  <div class="row">
+                    <h5>{{item.temp.day}}°</h5>
+                    <i class="wi forecast-icon">{{item.weather}}</i>
+                  </div>
+                </div>
+                <div class="col-sm-4 forecast-min-low">
+                  <p>
+                    <span class="high-temperature">{{item.temp.max}}</span>
+                  </p>
+                  <p>
+                    <span class="low-temperature">{{item.temp.min}}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+    
+            
+    
+          </div>
+        </div>
+      </div> -->
+
+
+    <div class="overlay-logo"><img src="./assets/img/logo1.svg" alt=""></div>
+    <div class="position-relative" id="screen">
+      <div class="video-container">
+        <!-- <div class="tradingview-widget-container" style="height: 300px;" #containerDiv>
+            <div class="tradingview-widget-container__widget"></div>
+    
+          </div> -->
+        <div class="blob-shadow"></div>
+        <ngb-carousel [interval]="interval" class="video-warapper" [showNavigationArrows]="showNavigationArrows"
+          [showNavigationIndicators]="showNavigationIndicators" (slide)="onSlide($event)">
+
+          <ng-template ngbSlide *ngIf="loaded" class="centred">
+            <div class="video-layer"></div>
+            <video autoplay loop [muted]="true">
+              <source src="./assets/img/Video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </ng-template>
+
+          <ng-template ngbSlide class="centred">
+            <div class="picsum-img-wrapper">
+              <div class="slide-layer"></div>
+              <div class="carousel-img" [style.background-image]="'url(assets/img/deal2.jpg)'"></div>
+            </div>
+            <div class="carousel-caption">
+              <h1>
+                <i class="fas fa-quote-left"></i>
+                Nous vous accompagnerons dans tous vos projets
+                <i class="fas fa-quote-right"></i>
+              </h1>
+            </div>
+          </ng-template>
+
+          <ng-template ngbSlide class="centred">
+            <div class="video-layer"></div>
+            <video #videoPlayer autoplay="false" loop="false" [muted]="true">
+              <source src="./assets/img/slide.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </ng-template>
+
+          <ng-template ngbSlide class="centred">
+            <div class="picsum-img-wrapper">
+              <div class="slide-layer"></div>
+              <div class="carousel-img" [style.background-image]="'url(assets/img/hansdshake2.jpg)'"></div>
+            </div>
+            <div class="carousel-caption">
+              <h1>
+                <i class="fas fa-quote-left"></i>
+                Nos équipes réalisent votre accompagnement juridique &amp; fiscal
+                <i class="fas fa-quote-right"></i>
+              </h1>
+            </div>
+          </ng-template>
+
+          <ng-template ngbSlide class="centred">
+            <div class="picsum-img-wrapper">
+              <div class="slide-layer"></div>
+              <div class="carousel-img" [style.background-image]="'url(assets/img/deal.jpg)'"></div>
+            </div>
+            <div class="carousel-caption">
+              <h1>
+                <i class="fas fa-quote-left"></i>
+                Nos équipes réalisent votre accompagnement juridique &amp; fiscal
+                <i class="fas fa-quote-right"></i>
+              </h1>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+
+      </div>
+
+
+      <!-- Hero for FREE version -->
+
+      <section class="section section-lg section-hero section-shaped">
+        <!-- Background circles -->
+        <div class="shape shape-style-1 shape-primary">
+          <span class="span-150"></span>
+          <span class="span-50"></span>
+          <span class="span-50"></span>
+          <span class="span-75"></span>
+          <span class="span-100"></span>
+          <span class="span-75"></span>
+          <span class="span-50"></span>
+          <span class="span-100"></span>
+          <span class="span-50"></span>
+          <span class="span-100"></span>
+        </div>
+        <div class="container-fluid shape-container d-flex align-items-center py-lg">
+          <div class="row align-content-between align-items-center landing">
+            <img src="./assets/img/logo1.svg" alt="">
+            <h1 class="display-2 text-white">{{'HOME.titre1' | translate }}</h1>
+            <h2 class="display-2 text-white">{{'HOME.titre2' | translate }}</h2>
+            <div class="meet">
+              <!-- Vous pouvez réserver une réunion avec l'un de nos consultants
+              </h3> -->
+              <h3 class="display-2 text-white text-center">Join us and get discovered by Employers & apply to jobs in a
+                single click</h3>
+              <div>
+                <button class="btn btn-block mb-3 btn-glow btn-hover-shine" (click)="open(classic,'' , 'lg')">
+                  {{'HOME.button' | translate }}
+                </button>
+                <a class="btn btn-success" href="meet.google.com/uca-dacp-xkj" target="_blank">meet</a>
+                <button class="btn btn-success">Login</button>
+                <button class="btn btn-white">Register</button>
+                <!-- <img src="./assets/img/theme/meet.svg" alt="" style="width: 50%;"> -->
+              </div>
+
+
+              <ng-template #classic let-c="close" let-d="dismiss">
+                <div class="modal-content">
+                  <div class="modal-body" style="height: 80vh;">
+                    <iframe src="https://meet.google.com/uca-dacp-xkj"
+                      allowfullscreen frameborder="0" style="overflow:hidden;height:100%;width:100%" height="100%"
+                      width="100%"></iframe>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal"
+                      (click)="c('Close click')">Close</button>
+                  </div>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+        <!-- SVG separator -->
+        <!-- <div class="separator separator-bottom separator-skew zindex-100">
+            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+              xmlns="http://www.w3.org/2000/svg">
+              <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+          </div> -->
+      </section>
+    </div>
+    <!-- <div class="event" style="top:40vh">
+        <div class="card card2" *ngFor="let event of events">
+          <span onclick="this.parentElement.style.display = 'none';" class="close">
+            <i class="far fa-times-circle"></i>
+          </span>
+          <h2>{{event.title}}</h2>
+          <i class="fas fa-arrow-right"></i>
+          <div class="pic">
+            <div class="pic-overlay"></div>
+          </div>
+          <ul>
+          </ul>
+          <div class="social">
+            <a href=""><i class="fab fa-facebook"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-github"></i></a>
+          </div>
+          <button>
+          </button>
+        </div>
+      </div> -->
+    <!-- <app-sections></app-sections> -->
+  </main>
+  <main class="profile-page mb-8">
+    <section class="section">
+      <div class="container">
+        <div class="card card-profile shadow">
+          <div class="px-4">
+            <div class="container mt--5">
+              <div class="row justify-content-center">
+                <div class="col-md-12">
+                  <div class="event-list" style="border-radius: 0;
+                  border-top-left-radius: 100px !important;border-top-right-radius: 100px !important;">
+                    <div class="row row-grid">
+
+                      <div class="col-lg-8 col-md-6 py-4">
+                        <h3 class="display-2 text-white text-center">Vous pouvez réserver une réunion avec l'un de nos
+                          consultants
+                        </h3>
+                        <div class="text-center mt-5">
+                          <button class="btn btn-outline-success" routerLinkActive="active"
+                            [routerLink]="['/event']">Tous les
+                            événements <i class="fas fa-arrow-right"></i></button>
+                        </div>
+
+                      </div>
+                      <div class="col-lg-4 col-md-6">
+
+
+                        <img src="./assets/img/theme/meet.svg" alt="" style="width: 100%;">
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <main class="profile-page mb-8">
+    <section class="section">
+      <div class="container">
+        <div class="card card-profile shadow">
+          <div class="px-4">
+            <div class="container mt--5">
+              <div class="row justify-content-center">
+                <div class="col-md-12">
+                  <div class="row row-grid">
+                    <div class="col-md-4">
+                      <div class="event-list">
+                        <div class="overlaying">
+                          <a href="https://www.eventbrite.com/e/business-basics-writing-a-business-plan-tickets-128128500795?aff=ebdssbonlinesearch&keep_tld=1"
+                            class="btn btn-success" target="_blank">Visiter <i class="fa fa-external-link-square"
+                              aria-hidden="true"></i></a>
+                        </div>
+                        <h4> <i class="fa fa-clock-o" aria-hidden="true"></i> Sat, December 19, 2020
+                          3:00 PM – 4:30 PM CET</h4>
+                        <h3>Introduction to Stock Market Investing and Trading</h3>
+                        <h4> <i class="fa fa-user-circle-o" aria-hidden="true"></i> by O-Hyphen</h4>
+                      </div>
+
+                    </div>
+                    <div class="col-md-4">
+                      <div class="event-list">
+                        <div class="overlaying">
+                          <a href="https://www.eventbrite.com/e/business-basics-writing-a-business-plan-tickets-128128500795?aff=ebdssbonlinesearch&keep_tld=1"
+                            class="btn btn-success" target="_blank">Visiter <i class="fa fa-external-link-square"
+                              aria-hidden="true"></i></a>
+                        </div>
+                        <h4> <i class="fa fa-clock-o" aria-hidden="true"></i> Sat, December 19, 2020
+                          8:30 PM – 9:00 PM CET</h4>
+                        <h3>Webinar: Mistakes to Avoid During Product Interview by LinkedIn Sr PM</h3>
+                        <h4> <i class="fa fa-user-circle-o" aria-hidden="true"> by Product School</i> </h4>
+                      </div>
+
+                    </div>
+                    <div class="col-md-4">
+                      <div class="event-list">
+                        <div class="overlaying">
+                          <a href="https://www.eventbrite.com/e/business-basics-writing-a-business-plan-tickets-128128500795?aff=ebdssbonlinesearch&keep_tld=1"
+                            class="btn btn-success" target="_blank">Visiter <i class="fa fa-external-link-square"
+                              aria-hidden="true"></i></a>
+                        </div>
+                        <h4> <i class="fa fa-clock-o" aria-hidden="true"></i> Sun, December 20, 2020
+                          12:00 PM – 3:00 PM CET</h4>
+                        <h3>Webinar: Business productivity 101 explaining</h3>
+                        <h4> <i class="fa fa-user-circle-o" aria-hidden="true"></i> by Hannah Ebong</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mt-5">
+              <button class="btn btn-outline-success" routerLinkActive="active" [routerLink]="['/event']">Tous les
+                événements <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="pn"></div>
+  <main class="profile-page mt-5">
+
+    <section class="">
+      <div class="container">
+        <div class="card card-profile shadow">
+          <div class="px-4">
+            <div class="text-center mt-5">
+              <h2>Mission et Vision</h2>
+            </div>
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-12">
+                  <div class="row row-grid">
+                    <div class="col-md-4">
+                      <div class="card card-lift--hover shadow border-0">
+                        <div class="card-body py-5">
+                          <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
+                            <i class="fa fa-handshake"></i>
+                          </div>
+                          <p class="description mt-3">NOVUSVIA référents dans le conseil et l’accompagnement aux
+                            entreprises. Nous vous
+                            accompagnerons donc dans tous vos projets d’entreprise et ce à
+                          </p>
+                          <div>
+                            <span class="text-primary">court</span>/
+                            <span class="text-primary">moyen</span>/
+                            <span class="text-primary">long</span>
+                          </div>
+                          <p class="description mt-3">terme selon vos besoins.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="card card-lift--hover shadow border-0">
+                        <div class="card-body py-5">
+                          <div class="icon icon-shape icon-shape-success rounded-circle mb-4">
+                            <i class="fa fa-eye"></i>
+                          </div>
+                          <p class="description mt-3">Il s’agit en effet d’une aide au moment du montage du projet dans
+                            le
+                            domaine</p>
+                          <div>
+                            <span class="text-success">juridique</span>,
+                            <span class="text-success">social</span>,
+                            <span class="text-success">fiscal</span>,
+                            <span class="text-success">financier</span>
+                          </div>
+                          <p class="description mt-3">… ainsi que toute au long du développement de l’entreprise.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="card card-lift--hover shadow border-0">
+                        <div class="card-body py-5">
+                          <div class="icon icon-shape icon-shape-warning rounded-circle mb-4">
+                            <i class="fa fa-shoe-prints"></i>
+                          </div>
+                          <p class="description mt-3">Du prévisionnel financier à la recherche de clients et de
+                            partenaires en passant par les
+                            démarches légales, NOVUSVIA vous accompagne à toutes les étapes de la création et
+                            du développement de votre entreprise à l’échelle nationale qu’à l’échelle internationale.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- <div class="event-list">
+    <div>
+      <div class="overlaying">
+        <a href="https://www.eventbrite.com/e/business-basics-writing-a-business-plan-tickets-128128500795?aff=ebdssbonlinesearch&keep_tld=1"
+          class="btn btn-success" target="_blank">Visiter <i class="fa fa-external-link-square"
+            aria-hidden="true"></i></a>
+      </div>
+      <h4> <i class="fa fa-clock-o" aria-hidden="true"></i> Wed, December 2, 2020
+        6:00 PM – 7:30 PM CET</h4>
+      <h3>Business Basics: Writing a Business Plan</h3>
+      <h4> <i class="fa fa-user-circle-o" aria-hidden="true"></i> by Huron County Economic Development</h4>
+    </div>
+  </div>
+  <div class="event-list" style="margin-top: 165px;">
+    <div>
+      <div class="overlaying">
+        <a href="https://www.eventbrite.com/e/diversity-in-recruitment-webinar-tickets-128483895791?aff=ebdssbonlinesearch&keep_tld=1"
+          class="btn btn-success" target="_blank">Visiter <i class="fa fa-external-link-square"
+            aria-hidden="true"></i></a>
+      </div>
+      <h4> <i class="fa fa-clock-o" aria-hidden="true"></i> Tue, 8 December 2020
+        11:30 – 12:30 CET</h4>
+      <h3>Diversity in Recruitment Webinar</h3>
+      <h4> <i class="fa fa-user-circle-o" aria-hidden="true"></i> by Women's Employment Network</h4>
+
+    </div>
+  </div>
+
+  <div class="event-list" style="margin-top: 330px;">
+    <div>
+      <div class="overlaying">
+        <a href="https://www.eventbrite.com/e/introduction-to-entrepreneurship-tickets-116027207501?aff=eprofsaved"
+          class="btn btn-success" target="_blank">Visiter <i class="fa fa-external-link-square"
+            aria-hidden="true"></i></a>
+      </div>
+      <h4> <i class="fa fa-clock-o" aria-hidden="true"></i> Thu, December 10, 2020
+        7:00 PM – 8:00 PM CET</h4>
+      <h3>Introduction to Entrepreneurship</h3>
+      <h4> <i class="fa fa-user-circle-o" aria-hidden="true"></i> by Women's Employment Network</h4>
+
+    </div>
+  </div> -->
+
+  <app-weather2 #clock class="ml-1"></app-weather2>
+  <main class="news-wrapper mt-6">
+    <h1 class="text-white" style="text-align: center;">Newsletter</h1>
+    <h4 class="text-white" style="text-align: center;">{{'HOME.newsletter' | translate }}</h4>
+    <form role="form" class="col-md-4" style="display: block;margin: 0 auto;" [formGroup]="form"
+      (ngSubmit)="newsletter()">
+      <div class="input-group mb-3">
+        <input type="email" class="form-control" placeholder="Email" type="text" name="email"
+          aria-label="Sender's email" aria-describedby="button-addon2" formControlName="email">
+        <div class="input-group-append">
+          <button *ngIf="!loaderButton" class="btn btn-primary" type="submit" id="button-addon2"><i
+              class="fas fa-paper-plane"></i></button>
+          <button *ngIf="loaderButton" class="btn btn-primary">
+            <div class="loader">Loading...</div>
+          </button>
+        </div>
+      </div>
+    </form>
+  </main>
+  <div id="morph"></div>
+  <main>
+
+    <div class="position-relative">
+      <!-- Hero for FREE version -->
+
+      <section class="section section-lg section-hero section-shaped">
+        <!-- Background circles -->
+        <div class="shape shape-style-1 shape-primary">
+          <span class="span-150"></span>
+          <span class="span-50"></span>
+          <span class="span-50"></span>
+          <span class="span-75"></span>
+          <span class="span-100"></span>
+          <span class="span-75"></span>
+          <span class="span-50"></span>
+          <span class="span-100"></span>
+          <span class="span-50"></span>
+          <span class="span-100"></span>
+        </div>
+
+        <div class="container concept mb-6">
+
+          <div class="container pt-lg pb-100">
+            <div class="row text-center justify-content-center">
+              <div class="col-md-10">
+                <h1 class="display-3 text-white">{{'HOME.concept' | translate }}</h1>
+              </div>
+            </div>
+          </div>
+          <div class="row row-grid align-items-center">
+
+            <div class="col-md-6">
+
+              <div class="card bg-default shadow border-0">
+                <img src="./assets/img/theme/service1.svg" class="card-img-top">
+                <blockquote class="card-blockquote">
+                  <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95"
+                    class="svg-bg">
+                    <polygon points="0,52 583,95 0,95" class="fill-default" />
+                    <polygon points="0,42 583,95 683,0 0,95" opacity=".2" class="fill-default" />
+                  </svg>
+                  <p class="lead text-italic text-white">{{'HOME.concept1' | translate }}</p>
+                </blockquote>
+              </div>
+            </div>
+            <div class="col-md-6 service2">
+              <div class="card bg-default shadow border-0">
+                <img src="./assets/img/theme/service2.svg" class="card-img-top">
+                <blockquote class="card-blockquote">
+                  <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95"
+                    class="svg-bg">
+                    <polygon points="0,52 583,95 0,95" class="fill-default" />
+                    <polygon points="0,42 583,95 683,0 0,95" opacity=".2" class="fill-default" />
+                  </svg>
+                  <p class="lead text-italic text-white">{{'HOME.concept2' | translate }}</p>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>

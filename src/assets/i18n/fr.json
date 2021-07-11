@@ -1,0 +1,46 @@
+{
+    "HOME": {
+        "titre1": "Cabinet de Consulting | Accompagnement | Conseil RH",
+        "titre2": "Avec NOVUSVIA, vous êtes formé, accompagné et conseillé par des experts en gestion et développement d'entreprises",
+        "meet": "Vous pouvez réserver une réunion avec l'un de nos consultants",
+        "button": "cliquer ici",
+        "newsletter": "Veuillez saisir ci-dessous votre adresse email",
+        "concept": "Un concept différent",
+        "concept1": "Au-delà d’une vision nouvelle, les consultants de NOVUSVIA vous permettent de prendre du recul en étant accompagné dans un cadre sécurisant, afin de mesurer les conséquences des orientations que vous insufflez à l’entreprise.",
+        "concept2": "Bien sûr, les consultants de NOVUSVIA, bénéficient d’un regard expérimenté sur votre activité. Nous avons une vision pragmatique du marché où vous évoluez. En effet, les consultants de NOVUSVIA, complètent leur veille technique sur nos domaines de compétences par une observation et un échange des marchés au niveau local, national et international."
+    },
+    "navbar": {
+        "Accueil": "Accueil",
+        "Metier": "Nos métiers",
+        "rh": "Ressources Humaines",
+        "formation": "formations",
+        "Evenements": "Evenements",
+        "Contact": "Contact"
+    },
+    "metier": {
+        "accompagnement": "L’accompagnement",
+        "Conseil": "Conseil",
+        "Creation": "Création d’entreprises",
+        "Social": "Sociale",
+        "plus": "Savoir plus",
+        "1h1": "Un nouveau concept pour mieux vous accompagner",
+        "1p1": "Vous souhaitez déléguer vos obligations réglementaires, identifier les risques éventuels, optimiser vos options comptables et fiscales en intégrant l’environnement économique qui est le vôtre. Vous cherchez un professionnel à votre écoute afin de vous accompagner de manière proactive pour une méthodologie et des recommandations au fur et à mesure que vous vous développez.",
+        "1h2": "Des solutions adaptées à chaque situation",
+        "1p2": "Volontairement, nous approchons chacun de vos enjeux sous un angle neuf et indépendant, en partenaire afin de vous apporter une vision juste, enrichie de la multiplicité de nos savoir-faire. NOVUSVIA a toujours pour priorité, de vous assurer une sécurité maximale au-delà de ses conseils.",
+        "2p1": "Derrière chaque fait, chaque enjeu, chaque projet, plusieurs chemins s’ouvrent au dirigeant. Quel chemin choisir ? Dans quelles conditions ? À quel moment ? Quand changer de cap ? Autant de questions auxquelles NOVUSVIA peut répondre. Ils vous accompagnent dans vos prises de décisions pour une efficience optimale.",
+        "2h1": "Un champ de compétences élargi",
+        "2p2": "Les métiers de NOVUSVIA sont ceux de la sphère de l’accompagnement et du conseil. Le concept s’articule autour de trois objectifs forts :",
+        "2p3": "Anticiper pour mieux accompagner ses clients",
+        "2p4": "Structurer avec exigence les outils et les méthodes",
+        "2p5": "Garantir un niveau optimal de sécurité et de qualité",
+        "2p6": "Identifier les risques inhérents à l’entreprise pour mieux les maîtriser.",
+        "2p7": "Pour réaliser ces objectifs, NOVUSVIA offre à ses clients un ensemble de missions et de conseil sur tous les aspects de leur rôle de dirigeant. Quel que soit le domaine d’activité, l’objectif ou la problématique.",
+        "3p": "Notre Société vous permet de créer votre entreprise sans aucun déplacement en Tunisie en un délai record de 48 heures pour l’agrément API et 48 heures pour les formalités juridiques après avoir versé le capital dans un compte indisponible. NOVUSVIA vous conseille avant l’installation sur le choix à faire au niveau du régime fiscal et le statut juridique adéquat dans diverses branches sectorielles. L’investissement peut s’effectuer par la création d’une société, par la prise de participation au capital d’une nouvelle société, par la souscription à l’augmentation de capital d’une société existante, la création d’une succursale ou d’un bureau de liaison ou par l’acquisition de valeurs mobilières tunisiennes.",
+        "4h1": "Des solutions adaptées à chaque situation",
+        "4p1": "À chacun des enjeux que vous partagez avec nous, correspond une organisation des hommes et des compétences en matière sociale. Notre ambition est de vous apporter des solutions sur mesure en matière de Gestion de la paie, Conseil en droit du travail et droit social, Audit social, Assistance en matière de management du personnel…",
+        "4h2": "Des avantages concrets",
+        "5h1": "S’entourer des meilleures compétences.",
+        "5h2": "Vous cherchez un cadre dirigeant, un directeur administratif et financier, un responsable des achats ou un logisticien,… grâce à notre maîtrise de ces métiers, nous vous garantissons la bonne adéquation poste/profil.",
+        "5h3": "Consulter Les offres."
+    }
+}
